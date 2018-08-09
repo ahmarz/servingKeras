@@ -20,3 +20,5 @@ except Exception as e:
 
 # To call from terminal
 #curl -X POST -F image=@5.png 'http://localhost:5000/predict'
+
+#curl -X POST -F image=@5.png http://servingkerasapp-env.3mfp9ykvkc.us-east-1.elasticbeanstalk.com/
