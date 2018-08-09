@@ -8,7 +8,9 @@ from config.config import IMG_ROWS, IMG_COLS
 
 # initialize our Flask application and the Keras model
 app = flask.Flask(__name__)
-model = None
+
+cls = ImageClassifier()
+model = cls.load_model()
 
 # the code for the server goes here :)
 
@@ -29,20 +31,20 @@ def predict():
 
 	            # classify the input image and then initialize the list
 	            # of predictions to return to the client
-	            preds = cls.model.predict(image)
-	            print(preds)
-	            response = np.array_str(np.argmax(preds, axis=1))
+	            preds = model.predict(image)
+	            # print(preds)
+	            # response = np.array_str(np.argmax(preds, axis=1))
+                digit = np.argmax(preds)
+                prediction = {'digit':int(digit)}
 
     except Exception as e:
     	raise e
 
     # return the data dictionary as a JSON response
-    return flask.jsonify(response)
+    return flask.jsonify(prediction)
 
 
 if __name__ == "__main__":
     print(("* Loading Keras model and Flask starting server..."
         "please wait until server has fully started"))
-    cls = ImageClassifier()
-    cls.load_model()
     app.run(host="0.0.0.0", port=5000, debug=False)
