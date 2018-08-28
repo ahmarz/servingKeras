@@ -1,6 +1,6 @@
 # servingKeras
 
-## To run
+## To Start the service
 ``` python server.py ```
 
 ## To train a new model
