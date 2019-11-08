@@ -6,15 +6,15 @@ import flask
 import io
 from config.config import IMG_ROWS, IMG_COLS
 
-# initialize our Flask application and the Keras model
-app = flask.Flask(__name__)
+# initialize our Flask application lication and the Keras model
+application = flask.Flask(__name__)
 
 cls = ImageClassifier()
 model = cls.load_model()
 
 # the code for the server goes here :)
 
-@app.route("/predict", methods=["POST"])
+@application.route("/predict", methods=["POST"])
 def predict():
     # initialize the data dictionary that will be returned from the
     # view
@@ -47,4 +47,4 @@ def predict():
 if __name__ == "__main__":
     print(("* Loading Keras model and Flask starting server..."
         "please wait until server has fully started"))
-    app.run(host="0.0.0.0", port=5000, debug=False, threaded=False)
+    application.run(host="0.0.0.0", port=5000, debug=False, threaded=False)
