@@ -1,6 +1,6 @@
 utils
 kerberos
-lxml==3.4.2
+lxml==4.6.2
 tornado
 boto3
 pandas
