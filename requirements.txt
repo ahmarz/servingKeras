@@ -1,6 +1,6 @@
 utils
 kerberos==1.1.1
-tornado==4.5.3
+tornado==6.3.2
 boto3
 pandas
 jupyter
